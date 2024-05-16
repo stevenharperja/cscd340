@@ -16,7 +16,9 @@ void* worker(void* arg) {
 int main(int argc, char *argv[]) {
     pthread_t p;
     Pthread_create(&p, NULL, worker, NULL);
-    balance++; // unprotected access
+    pthread_mutex_lock(&lock);
+    balance++; // protected access
+    pthread_mutex_unlock(&lock);
     Pthread_join(p, NULL);
     return 0;
 }

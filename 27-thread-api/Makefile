@@ -15,6 +15,9 @@ main-race2: main-race2.c mythreads.h
 main-race3: main-race3.c mythreads.h
 	gcc -o main-race3 main-race.c $(FLAGS)
 
+main-race4: main-race4.c mythreads.h
+	gcc -o main-race4 main-race.c $(FLAGS)
+
 main-deadlock: main-deadlock.c mythreads.h
 	gcc -o main-deadlock main-deadlock.c $(FLAGS)
 
