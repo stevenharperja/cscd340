@@ -1,7 +1,7 @@
 
 FLAGS = -Wall -pthread -g
 
-all: main-race main-deadlock main-deadlock-global main-signal main-signal-cv
+all: main-race main-race2 main-race3 main-race4 main-deadlock main-deadlock-global main-signal main-signal-cv
 
 clean:
 	rm -f main-race main-deadlock main-deadlock-global main-signal main-signal-cv
