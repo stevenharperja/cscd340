@@ -9,6 +9,12 @@ clean:
 main-race: main-race.c mythreads.h
 	gcc -o main-race main-race.c $(FLAGS)
 
+main-race2: main-race2.c mythreads.h
+	gcc -o main-race2 main-race.c $(FLAGS)
+
+main-race3: main-race3.c mythreads.h
+	gcc -o main-race3 main-race.c $(FLAGS)
+
 main-deadlock: main-deadlock.c mythreads.h
 	gcc -o main-deadlock main-deadlock.c $(FLAGS)
 
