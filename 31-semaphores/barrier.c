@@ -12,8 +12,13 @@
 // You likely need two semaphores to do this correctly, and some
 // other integers to track things.
 
+
+//Now go one step further by implementing a general solution to barrier synchronization. Assume there are two points in a sequential piece of code, called P1 and P2. Putting a barrier between P1 and P2 guarantees that all threads will execute P1 before any one thread executes P2. Your task: write the code to implement a barrier() function that can be used in this manner. It is safe to assume you know N (the total number of threads in the running program) and that all N threads will try to enter the barrier. Again, you should likely use two semaphores to achieve the solution, and some other integers to count things. See barrier.c for details.
+
+
 typedef struct __barrier_t {
     // add semaphores and other information here
+    sem_t s1, s2;
 } barrier_t;
 
 
@@ -22,10 +27,21 @@ barrier_t b;
 
 void barrier_init(barrier_t *b, int num_threads) {
     // initialization code goes here
+    sem_t s1 = b->s1;
+    sem_t s2 = b->s2;
+    Sem_init(&s1,-num_threads);
+    Sem_init(&s2,0);
 }
 
 void barrier(barrier_t *b) {
     // barrier code goes here
+    sem_t s1 = b->s1;
+    sem_t s2 = b->s2;
+    Sem_post(&s1);
+    Sem_post(&s1);
+    Sem_wait(&s1);
+    Sem_wait(&s2);
+    ????
 }
 
 //
