@@ -18,15 +18,22 @@ int main(int argc, char *argv[]) {
         if (strcmp(argv[2], "-l") == 0) {
             l = 1;
             which = 0;
+            strcpy(dir, argv[which + 1]);
         }
         if (strcmp(argv[1], "-l") == 0) {
             l = 1;
             which = 1;
+            strcpy(dir, argv[which + 1]);
         }
     }
-    if (argc >= 2) {
-        //assign arv[1] to dir
-        strcpy(dir, argv[which + 1]);
+    if (argc == 2) {
+        //is it -l?
+        if (strcmp(argv[1], "-l") == 0) {
+            l = 1;
+        } else {
+            strcpy(dir, argv[1]);
+        }
+        
     }
     //make it so passing -l as an argument will print out the long listing of the files
 
